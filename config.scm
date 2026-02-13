@@ -3,6 +3,9 @@
              (nongnu packages linux)
              (nongnu system linux-initrd))
 
+(use-service-modules networking ssh)
+(use-package-modules screen ssh)
+
 (operating-system
  ;; Use regular Linux with the big bad proprietary firmware blobs.
  (kernel linux)
