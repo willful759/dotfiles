@@ -25,12 +25,13 @@
                    %base-packages))
 
  (services (modify-services
-             (cons (service gnome-desktop-service-type) %desktop-services)
-
-             (service openssh-service-type
-                      (oppenssh-configuration
-                       (openssh openssh-sans-x)
-                       (port-number 22)))
+             (cons*
+              (service gnome-desktop-service-type)
+              (service openssh-service-type
+                (oppenssh-configuration
+                (openssh openssh-sans-x)
+                (port-number 22)))
+              %desktop-services)
 
              ;; Get nonguix substitutes.
              (guix-service-type config =>
